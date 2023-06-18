@@ -1,4 +1,4 @@
-from main import generate_horoscope
+from generation_for_sending import zodiac_signs
 from social_spam import Vkontakte
 import schedule
 from datetime import date
@@ -24,10 +24,11 @@ vk.connect_user(token=user_token)
 
 def everyday_horoscope(records):
     id = records[0][6]
+    sign = records[0][5]
     current_date = date.today()
     name = vk.get_name_by_id(id)['first_name']
-    horoscope = generate_horoscope()
-    vk.send_message(id, message=f'Доброго утра, {name}! {current_date} {horoscope}', image='./image.png')
+    horoscope = zodiac_signs[sign]
+    vk.send_message(id, message=f'Доброго утра, {name}! {current_date.day}.{current_date.month}.{current_date.year} {horoscope}', image='./image.png')
     print("Message was sent successfully.")
 
 
@@ -43,4 +44,3 @@ schedule.every().day.at("07:00").do(vk_sending)
 while True:
     schedule.run_pending()
     time.sleep(1)
-
