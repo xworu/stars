@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/horoscope.css">
+    <title>Гороскоп</title>
+</head>
+
+<body>
+    <header>
+        <img src="../img/small-star.svg" id="star1">
+        <img src="../img/medium-star.svg" id="star2">
+        <img src="../img/medium-star2.svg" id="star3">
+        <p id="sign_horoscope">Гороскоп для </p>
+        <h1 id="month_horoscope"></h1>
+    </header>
+
+    <main>
+        <div class="horoscope_text">
+            <div>
+                <p>
+                    {{ first }}
+                </p>
+                <br><br>
+                <p>
+                    {{ second }}
+                </p>
+                <br><br>
+                <p>
+                    {{ third }}
+                </p>
+            </div>
+        </div>
+
+        <div class="horoscope_form">
+            <p>Подпишись на нашу рассылку и будь в курсе актульных госкопов каждый месяц</p>
+            <form action="" method="post">
+                <div class="name_input">
+                    <input class="input1" type="text" name="first_name" placeholder="имя" autocomplete="off">
+                    <input class="input1" type="text" name="surname" placeholder="фамилия" autocomplete="off">
+                </div>
+                <input class="input2" type="text" name="date" placeholder="дата рождения (дд.мм)" autocomplete="off">
+<<<<<<< HEAD:src/templates/horoscope.html
+                <input class="input2" type="text" name="vk_id" placeholder="id вк (цифрами)" autocomplete="off" maxlength="9">
+=======
+                <input class="input2" type="text" name="id" placeholder="id вк (цифрами)" autocomplete="off" maxlength="9">
+>>>>>>> aab15412b0da4003b12abf2f982ab623234d5ed0:src/html/horoscope.html
+                <button class="input2" type="submit">Отправить</button>
+            </form>
+                    {% if error %}
+	            <p style="color:red">{{ error }}</p>
+	        {% endif %}
+                    {% if confirmation %}
+	            <p style="color:blue">{{ confirmation }}</p>
+	        {% endif %}
+        </div>
+    </main>
+
+    <script src="../js/horoscope.js"></script>
+
+</body>
+
+</html>
